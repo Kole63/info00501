@@ -17,4 +17,6 @@ typedef struct {
 void initialiser_graphe(FILE* f, graphe *g);
 void afficher_graphe(graphe g);
 void detruire_graphe(graphe *g);
+
+
 #endif

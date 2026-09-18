@@ -43,9 +43,12 @@ int main() {
     remplir_ensembles_comme_tp(e);
     // printf("La valeur du  representant de 8 est %d\n",trouver_ensemles(e,8));
     // printf("La valeur du  representant de 1 est %d\n",trouver_ensemles(e,1));
+    
     union_ensembles(e,9,10);
-    // union_ensembles(e,5,6);
+    union_ensembles(e,5,6);
     afficher_ensembles(*e);
+
+    detruire_ensembles(e);
 
     return EXIT_SUCCESS;
 }

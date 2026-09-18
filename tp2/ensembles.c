@@ -45,12 +45,12 @@ void remplir_ensembles_comme_tp(ensembles* e) {
 
 int trouver_ensemles(ensembles *e, int valeur) {
     int racine = valeur;
-    while(e->parent[racine - 1 ] != racine) {
-        racine = e->parent[racine - 1];
+    while(e->parent[racine] != racine) {
+        racine = e->parent[racine];
     }
     while(valeur != racine) {
-        int p = e->parent[valeur - 1];
-        e->parent[valeur - 1] = racine;
+        int p = e->parent[valeur];
+        e->parent[valeur] = racine;
         valeur = p;
     }
     return racine;
@@ -75,7 +75,11 @@ void union_ensembles(ensembles *e, int x,int  y) {
                 e->rang[racine_x] = e->rang[racine_x] + 1;
             }
         }
-    } else {
-        printf("Ne marche pas\n");
     }
+}
+
+void detruire_ensembles(ensembles *e) {
+    free(e->parent);
+    free(e->rang);
+    free(e);
 }

@@ -13,5 +13,6 @@ void afficher_ensembles(ensembles e);
 void remplir_ensembles_comme_tp(ensembles* e);
 int trouver_ensemles(ensembles *e, int valeur);
 void union_ensembles(ensembles *e, int x,int  y);
+void detruire_ensembles(ensembles *e);
 
 #endif
