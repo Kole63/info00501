@@ -83,3 +83,36 @@ void detruire_ensembles(ensembles *e) {
     free(e->rang);
     free(e);
 }
+
+arete* acpm_kruskal_ensembles(graphe* g) {
+    arete *aretes = construire_arete(g);
+    arete *acpm = malloc((g->n_sommets - 1) * sizeof(*acpm));
+    ensembles *e = initialiser_ensembles(g->n_sommets);
+    size_t n_acpm = 0;
+
+    tri_par_tas(aretes, g->n_aretes);
+    for (size_t i = 0; i < g->n_aretes && n_acpm < g->n_sommets - 1; i++) {
+        int racine_i = trouver_ensemles(e, aretes[i].i);
+        int racine_j = trouver_ensemles(e, aretes[i].j);
+        if (racine_i != racine_j) {
+            acpm[n_acpm] = aretes[i];
+            n_acpm++;
+            union_ensembles(e, racine_i, racine_j);
+        }
+    }
+
+    detruire_ensembles(e);
+    free(aretes);
+    return acpm;
+
+}
+
+void afficher_acpm(arete *a, size_t n_aretes) {
+    printf("Arbre couvrant de poids minimal :\n");
+    afficher_arete(n_aretes, a);
+    int somme = 0;
+    for(size_t i = 0; i < n_aretes; i++) {
+        somme += a[i].poids;
+    }
+    printf("Poids de l'arbre : %d\n",somme);
+}

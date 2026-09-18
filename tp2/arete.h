@@ -1,6 +1,7 @@
 #ifndef ARETE_H
 #define ARETE_H
 #include "graphe.h"
+
 typedef struct {
 	int i;
 	int j;
