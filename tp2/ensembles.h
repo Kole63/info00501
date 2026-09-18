@@ -19,5 +19,6 @@ int trouver_ensemles(ensembles *e, int valeur);
 void union_ensembles(ensembles *e, int x,int  y);
 void detruire_ensembles(ensembles *e);
 arete* acpm_kruskal_ensembles(graphe* g);
+arete* acpm_kruskal_tableau(graphe *g);
 void afficher_acpm(arete *a, size_t n_aretes);
 #endif

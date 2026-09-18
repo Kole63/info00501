@@ -50,7 +50,8 @@ int main() {
     // // detruire_ensembles(e);
 
 
-    arete* a = acpm_kruskal_ensembles(g);
+    // arete* a = acpm_kruskal_ensembles(g);
+    arete* a = acpm_kruskal_tableau(g);
 
 
     afficher_acpm(a, g->n_sommets - 1);
